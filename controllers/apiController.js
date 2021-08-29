@@ -1,3 +1,5 @@
+const PI = require('../models/PImodel');
+
 exports.test = function (req, res) {
     res.send('Olá! Teste ao Controller');
   };
@@ -11,12 +13,9 @@ exports.details = function(req, res) {
 
 // adicionar novo ponto de interesse
 exports.create = function(req, res){
-    console.log('you made a POST request: ', req.body);
-    res.send({
-        type: 'POST',
-        name: req.body.name,
-        rank: req.body.rank
-    });
+    PI.create(req.body).then(function(pi) {
+        res.send(pi)
+    })
 };
 
 // atualizar ponto de interesse
