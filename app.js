@@ -1,9 +1,10 @@
 // associar as dependências instaladas
 const express = require('express');
+const dotenv = require('dotenv').config('./.env')
 const app = express();
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
-const Uri = 'mongodb+srv://marcos:Samuel%40221568@cluster0.npff2.mongodb.net/marcos?retryWrites=true&w=majority'
+const Uri = process.env.MONGOURI
 
 
 
